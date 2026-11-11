@@ -1,0 +1,22 @@
+{"id": "en01", "lang": "en", "question": "How long are the piles under block 3?", "answerable": true, "expected_pages": ["ZH-0122-p001"]}
+{"id": "nl01", "lang": "nl", "question": "Hoe lang zijn de palen van blok 3?", "answerable": true, "expected_pages": ["ZH-0122-p001"]}
+{"id": "es01", "lang": "es", "question": "¿Qué longitud tienen los pilotes del bloque 3?", "answerable": true, "expected_pages": ["ZH-0122-p001"]}
+{"id": "en02", "lang": "en", "question": "Is the cavity wall insulated?", "answerable": true, "expected_pages": ["ZH-0110-p001"]}
+{"id": "nl02", "lang": "nl", "question": "Is de spouw geïsoleerd?", "answerable": true, "expected_pages": ["ZH-0110-p001"]}
+{"id": "es02", "lang": "es", "question": "¿Cómo es el muro de cámara de la fachada?", "answerable": true, "expected_pages": ["ZH-0110-p001"]}
+{"id": "en03", "lang": "en", "question": "How high is the crawl space under the ground floor?", "answerable": true, "expected_pages": ["ZH-0111-p001"]}
+{"id": "nl03", "lang": "nl", "question": "Hoe hoog is de kruipruimte?", "answerable": true, "expected_pages": ["ZH-0111-p001"]}
+{"id": "en04", "lang": "en", "question": "Which drawing has the floor plans of type A?", "answerable": true, "expected_pages": ["ZH-0101-p001"]}
+{"id": "es03", "lang": "es", "question": "¿Qué plano muestra las plantas del tipo A?", "answerable": true, "expected_pages": ["ZH-0101-p001"]}
+{"id": "nl04", "lang": "nl", "question": "Welke verwarming hebben de woningen?", "answerable": true, "expected_pages": ["ZH-0140-p001"]}
+{"id": "en05", "lang": "en", "question": "What heating did the houses get?", "answerable": true, "expected_pages": ["ZH-0140-p001"]}
+{"id": "en06", "lang": "en", "question": "When was the building permit granted?", "answerable": true, "expected_pages": ["ZH-0170-p001"]}
+{"id": "nl05", "lang": "nl", "question": "Wanneer is blok 3 opgeleverd?", "answerable": true, "expected_pages": ["ZH-0171-p001"]}
+{"id": "es04", "lang": "es", "question": "¿Cuál es la pendiente del tejado?", "answerable": true, "expected_pages": ["ZH-0102-p001"]}
+{"id": "en07", "lang": "en", "question": "Who made the pile plans?", "answerable": true, "expected_pages": ["ZH-0120-p001", "ZH-0121-p001", "ZH-0122-p001", "ZH-0123-p001"]}
+{"id": "nl06", "lang": "nl", "question": "Is er een revisietekening van het complex?", "answerable": false, "expected_pages": []}
+{"id": "en08", "lang": "en", "question": "Is there asbestos in the roof boarding?", "answerable": false, "expected_pages": []}
+{"id": "es05", "lang": "es", "question": "¿Cuál es la etiqueta energética del bloque 2?", "answerable": false, "expected_pages": []}
+{"id": "en09", "lang": "en", "question": "What is the monthly rent of a type A house?", "answerable": false, "expected_pages": []}
+{"id": "nl07", "lang": "nl", "question": "Wie woont er op nummer 12?", "answerable": false, "expected_pages": []}
+{"id": "en10", "lang": "en", "question": "When was the kitchen of block 4 renovated?", "answerable": false, "expected_pages": []}
