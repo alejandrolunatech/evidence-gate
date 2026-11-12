@@ -17,8 +17,6 @@ the real pipeline produces after reading the scans.
 
 ## Run it
 
-## Run it
-
 Python 3.10 or newer, standard library only. No install, no network. From this folder:
 
 ```
@@ -49,7 +47,6 @@ Tests and evaluation:
 ```
 python3 -m unittest discover -s tests -v
 python3 -m evidence_gate.evaluate
-```n3 -m evidence_gate.evaluate
 ```
 
 ## How to read it
