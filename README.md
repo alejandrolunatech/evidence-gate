@@ -4,7 +4,7 @@ Code for the joint review, Option A (own project): Bouwarchief AI.
 
 ## What this is
 
-This repo is a small, hand-written part of Bouwarchief AI, the application I
+This repo is a small, self-contained part of Bouwarchief AI, the application I
 will show live during the interview. It answers a question about a building
 archive in Dutch, English or Spanish by citing one archive page, or it refuses
 when the archive does not say.
