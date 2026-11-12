@@ -112,6 +112,19 @@ I did not fix these against 22 questions, because that would be tuning on the te
 - Return several citations instead of one.
 - Calibrate the 0.5 threshold on a larger set of real questions from the client.
 
+## What I wrote and where I used AI
+
+| | |
+| --- | --- |
+| **Mine** | The scope of this repo, and typing, running and testing every file. |
+| **AI (Claude)** | Drafted the implementation, which I reviewed, typed in and tested. The algorithms are standard: BM25, TF-IDF and Reciprocal Rank Fusion. |
+| **How I checked it** | Predicted each output before running it, 26 unit tests, the evaluation, and reading each of the 7 misses. |
+| **Libraries and models** | None. Standard library only. |
+
+The production application was built with an AI coding agent (Claude Code)
+from my specifications. I reviewed and merged the pull requests, and ran the
+fine-tune, the deployment and the evaluations myself.
+
 ## Data
 
 23 page records and 22 questions, all synthetic, generated with AI and
