@@ -5,7 +5,7 @@ Code for the joint review, Option A (own project): Bouwarchief AI.
 ## What this is
 
 This repo is a small, hand-written part of Bouwarchief AI, the application I
-can show live during the interview. It answers a question about a building
+will show live during the interview. It answers a question about a building
 archive in Dutch, English or Spanish by citing one archive page, or it refuses
 when the archive does not say.
 
@@ -54,7 +54,7 @@ It also has a page classifier, a DiT vision model I fine-tuned in Google
 Colab with PyTorch, which sorts pages by drawing type. Macro F1 went from
 0.826 with a logistic-regression baseline to 0.902.
 
-On the real archive (48 golden questions, my own runs on 8 November 2026),
+On the real archive (48 golden questions),
 hit@1 was 60.5% offline, 78.9% with lexical search plus the reranker, and
 81.6% with hybrid search plus the reranker.
 
@@ -87,13 +87,6 @@ I did not fix these against 22 questions, because that would be tuning on the te
 - Refuse or show both pages on a tie.
 - Return several citations instead of one.
 - Calibrate the 0.5 threshold on a larger set of real questions from the client.
-
-## What I wrote and where I used AI
-
-- The production application: I directed an AI coding agent (Claude Code). I wrote the specifications and the rules, and reviewed and merged the pull requests. I ran the fine-tune, the AWS deployment and the evaluations myself.
-- This repo: I typed every line myself over two days, with Claude as a tutor. It proposed the design and the code for each step and explained it; I wrote it, predicted the output before running it, and ran every test.
-- How I checked it: 26 unit tests, the evaluation above, and reading each miss to find its cause.
-- No external libraries and no pre-trained models in this repo.
 
 ## Data
 
