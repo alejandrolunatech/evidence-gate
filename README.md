@@ -17,12 +17,39 @@ the real pipeline produces after reading the scans.
 
 ## Run it
 
+## Run it
+
 Python 3.10 or newer, standard library only. No install, no network. From this folder:
 
 ```
 python3 -m evidence_gate "How long are the piles under block 3?"
+```
+
+The same question type in Dutch and Spanish:
+
+```
+python3 -m evidence_gate "Hoe hoog is de kruipruimte?"
+python3 -m evidence_gate "Is de spouw geïsoleerd?"
+python3 -m evidence_gate "¿Qué longitud tienen los pilotes del bloque 3?"
+```
+
+Two questions the gate refuses, for different reasons:
+
+```
+python3 -m evidence_gate "Wie woont er op nummer 12?"
+python3 -m evidence_gate "Is there asbestos in the roof boarding?"
+```
+
+The first has low coverage: no page is about who lives where. For the second,
+the best page is a note saying the archive holds no asbestos inventory, so the
+honest answer is that the archive does not say.
+
+Tests and evaluation:
+
+```
 python3 -m unittest discover -s tests -v
 python3 -m evidence_gate.evaluate
+```n3 -m evidence_gate.evaluate
 ```
 
 ## How to read it
