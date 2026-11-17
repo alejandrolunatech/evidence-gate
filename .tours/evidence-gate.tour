@@ -1,0 +1,43 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Evidence gate in 10 minutes",
+  "description": "Six stops for the joint code review: flow, search, glossary, coverage, refusal, evaluation.",
+  "steps": [
+    {
+      "file": "evidence_gate/gate.py",
+      "line": 44,
+      "title": "1 · The whole flow in one method (2 min)",
+      "description": "`EvidenceGate.ask()` is the whole program. Three steps:\n\n1. **Search**: expand the question with the glossary and get up to 5 candidate pages.\n2. **Pick**: of those candidates, keep the page that covers most of the question, not simply the top search hit.\n3. **Decide**: answer with a citation, or refuse for one of three reasons: `no_candidates`, `low_coverage`, `archive_lacks_this`.\n\nDemo: `python3 -m evidence_gate \"How long are the piles under block 3?\"` answers sheet 122, coverage 0.75.\n\n**Say:** \"Search finds candidates; a separate, simple rule decides whether we are allowed to answer.\""
+    },
+    {
+      "file": "evidence_gate/search.py",
+      "line": 72,
+      "title": "2 · Two retrievers, fused by rank (2 min)",
+      "description": "Two deterministic retrievers over the same pages:\n\n- `BM25` on whole words: good for exact terms like sheet numbers and \"14,50\".\n- `NgramIndex`, TF-IDF on character n-grams: tolerant of spelling and compound words (\"palenplan\" vs \"palen\").\n\n`rrf()` merges them by **position**, not score, because a BM25 score and a cosine similarity are not on the same scale. k = 60 is the usual constant from the RRF paper.\n\n**Say:** \"Fusing by rank means I never have to calibrate one score against the other.\""
+    },
+    {
+      "file": "evidence_gate/glossary.py",
+      "line": 25,
+      "title": "3 · Three languages, one concept (1 min)",
+      "description": "`units()` turns a question into units: each unit is a set of words that mean the same thing. \"piles\", \"palen\" and \"pilotes\" become one unit, counted once.\n\nThat is why the Spanish question finds the same page as the English one (coverage 0.71 vs 0.75). It is a hand-written list of 13 concepts, which is the honest limit: production adds embeddings for meaning.\n\n**Say:** \"A small glossary gives multilingual matching without a model, and it is easy to audit.\""
+    },
+    {
+      "file": "evidence_gate/gate.py",
+      "line": 30,
+      "title": "4 · Coverage: how much of the question the page answers (2 min)",
+      "description": "The core idea. Each unit weighs as much as its rarest word (BM25's IDF): \"block\" is common, \"3\" or \"asbestos\" is rare and matters more. Coverage = weight found on the page / total weight of the question, from 0 to 1.\n\n**Known weakness (from the evaluation):** words that are not in the archive at all (\"who\", \"made\") get the maximum weight, so filler words can push a good page under the threshold. That is one cause of the 5 wrong refusals.\n\n**Say:** \"Unknown words weigh the most on purpose, because a question about something the archive never mentions should be refused. The cost is that filler words hurt too.\""
+    },
+    {
+      "file": "evidence_gate/gate.py",
+      "line": 51,
+      "title": "5 · The refusal gate (1 min)",
+      "description": "Two ways to refuse after picking the best page:\n\n- coverage below `MIN_COVERAGE` (0.5): \"Wie woont er op nummer 12?\" gets 0.17;\n- the best page is an **absence note**, a record that says what the archive does *not* hold: \"Is there asbestos in the roof boarding?\" matches well (0.74) and is still refused.\n\nThe 0.5 is a judgement call, not calibrated: calibrating it needs real client questions.\n\n**Say:** \"A refusal is a correct answer when the archive is silent. In a permit or a sale, a confident wrong answer costs more than 'I don't know'.\""
+    },
+    {
+      "file": "evidence_gate/evaluate.py",
+      "line": 12,
+      "title": "6 · How I know: the evaluation (2 min)",
+      "description": "`outcome()` names five results. The one that matters most is `answered_unanswerable`, a confident answer the archive does not support.\n\nRun 12 Nov 2026 (`python3 -m evidence_gate.evaluate`): 16 answerable → 9 right page, 2 wrong page, 5 refused; 6 unanswerable → 6 refused, 0 answered.\n\nIn all 7 misses the right page was among the candidates, so retrieval is fine and the coverage rule is the weak part. I did not tune on these 22 questions, because that would be tuning on the test set. The tests for each refusal reason are in `tests/test_gate.py`.\n\n**Say:** \"It is safe but too cautious: zero dangerous answers, five unnecessary refusals. Next I'd lower the weight of unknown filler words and calibrate the threshold on real questions.\""
+    }
+  ]
+}

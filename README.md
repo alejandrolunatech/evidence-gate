@@ -52,6 +52,7 @@ python3 -m evidence_gate.evaluate
 ## How to read it
 
 Start with `evidence_gate/gate.py`. `EvidenceGate.ask()` is the whole flow.
+In VS Code with the CodeTour extension, `.tours/evidence-gate.tour` walks the same path in six stops (about 10 minutes).
 
 | File | What it does |
 | --- | --- |
@@ -117,7 +118,7 @@ I did not fix these against 22 questions, because that would be tuning on the te
 | | |
 | --- | --- |
 | **Mine** | The scope of this repo, and typing, running and testing every file. |
-| **AI (Claude)** | Drafted the implementation, which I reviewed, typed in and tested. The algorithms are standard: BM25, TF-IDF and Reciprocal Rank Fusion. |
+| **AI (Claude)** | Drafted the implementation, which I reviewed, typed in and tested. The algorithms are standard: BM25, TF-IDF and Reciprocal Rank Fusion. Also drafted the CodeTour text. |
 | **How I checked it** | Predicted each output before running it, 26 unit tests, the evaluation, and reading each of the 7 misses. |
 | **Libraries and models** | None. Standard library only. |
 
